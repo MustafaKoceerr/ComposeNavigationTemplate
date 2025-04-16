@@ -6,8 +6,16 @@ import androidx.compose.ui.input.pointer.PointerId
 
 const val DETAIL_ARGUMENT_KEY = "id"
 const val DETAIL_ARGUMENT_KEY2 = "name"
+const val LIST_ARGUMENT_KEY = "id"
+const val LIST_ARGUMENT_KEY2 = "name"
+
 // Artık argument Key'i değiştirmek istediğimizde bunu tek bir yerden yapabiliriz.
 
+/**
+ * DetailScreen için required arguments'ler çalışıldı,
+ * ListScreen için optional arguments'ler çalışıldı.
+ * Required arguments için "/" kullanıldı, optional arguments için "?" kullanıldı.
+ */
 sealed class Screen(val route: String) {
     object Home : Screen(route = "home_screen")
     object Detail :
@@ -27,8 +35,21 @@ sealed class Screen(val route: String) {
             id: Int,
             name: String,
         ): String {
-            return "detail_screen/$id/$name" // her seferinde detail_screen yazmaktansa
+            return "detail_screen/$id/$name" // Burada curly braces eklenmediğine dikkat et.
 //            return this.route.replace(oldValue = "{$DETAIL_ARGUMENT_KEY}", newValue = id.toString())
+        }
+    }
+
+    object List : Screen(route = "list_screen?$LIST_ARGUMENT_KEY={id}&$LIST_ARGUMENT_KEY2={name}") {
+
+        fun passId(id: Int = 0): String {
+            return "list_screen?$LIST_ARGUMENT_KEY=$id"
+        }
+
+        fun passIdAndName(id: Int = 0, name: String = "default_name"): String {
+            return this.route.replace(oldValue = "{$LIST_ARGUMENT_KEY}", newValue = id.toString())
+                .replace(oldValue = "{$LIST_ARGUMENT_KEY2}", newValue = name)
+
         }
     }
 }
