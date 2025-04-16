@@ -25,7 +25,7 @@ fun HomeScreen(
         Text(
             modifier = Modifier.clickable {
 //                navController.navigate(route = Screen.Detail.route)
-                navController.navigate(route = Screen.Detail.passId(23)) // burada argüman için kıvırcık parantez eklemene gerek yok
+                navController.navigate(route = Screen.Detail.passIdAndName(23, "Mustafa"))
             },
             text = "Home",
             color = MaterialTheme.colorScheme.primary,
