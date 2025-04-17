@@ -1,4 +1,4 @@
-package com.example.composenavigation
+package com.example.composenavigation.home
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -13,10 +13,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.composenavigation.navigation.Screen
 import com.example.composenavigation.ui.theme.ComposeNavigationTheme
 
 @Composable
-fun DetailScreen(
+fun ListScreen(
     navController: NavController,
 ) {
     Box(
@@ -36,8 +37,8 @@ fun DetailScreen(
                     }
                 }
             },
-            text = "Detail",
-            color = Color.Red,
+            text = "List",
+            color = Color.Green,
             fontSize = MaterialTheme.typography.displaySmall.fontSize,
             fontWeight = FontWeight.Bold
         )
@@ -47,9 +48,9 @@ fun DetailScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun DetailScreenPreview() {
+fun ListScreenPreview() {
     ComposeNavigationTheme {
-        DetailScreen(
+        ListScreen(
             rememberNavController()
         )
     }
