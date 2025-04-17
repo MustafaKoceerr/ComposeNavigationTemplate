@@ -1,6 +1,4 @@
-package com.example.composenavigation
-
-import androidx.compose.ui.input.pointer.PointerId
+package com.example.composenavigation.navigation
 
 // argüman verme kısmında, id'nin birden fazla yerde tekrar ettiğini gördük. Bu tekrarda hata yaşamayalım diye const val kullanacağız.
 
@@ -8,6 +6,11 @@ const val DETAIL_ARGUMENT_KEY = "id"
 const val DETAIL_ARGUMENT_KEY2 = "name"
 const val LIST_ARGUMENT_KEY = "id"
 const val LIST_ARGUMENT_KEY2 = "name"
+
+const val AUTHENTICATION_ROUTE = "authentication"
+const val ROOT_ROUTE = "root"
+const val HOME_ROUTE = "home"
+
 
 // Artık argument Key'i değiştirmek istediğimizde bunu tek bir yerden yapabiliriz.
 
@@ -52,4 +55,8 @@ sealed class Screen(val route: String) {
 
         }
     }
+
+    object Login : Screen(route = "login_screen")
+    object SignUp : Screen(route = "signup_screen")
+
 }

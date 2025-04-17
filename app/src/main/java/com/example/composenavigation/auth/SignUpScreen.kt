@@ -1,4 +1,4 @@
-package com.example.composenavigation
+package com.example.composenavigation.auth
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -16,7 +16,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.composenavigation.ui.theme.ComposeNavigationTheme
 
 @Composable
-fun DetailScreen(
+fun SignUpScreen(
     navController: NavController,
 ) {
     Box(
@@ -25,19 +25,10 @@ fun DetailScreen(
     ) {
         Text(
             modifier = Modifier.clickable {
-//                navController.navigate(Screen.Home.route) // bu şekilde yaparsak, screen'ler stack'te birikir, Home'a geri dönmek istiyorsak ve home'dan geldiysek kısacak popBackStack() komutunu kullanabiliriz.
-//                navController.popBackStack()
-                /**
-                 * Peki hem popup yapmak, hem de parametre göndermek istiyorsak ne yapacağız?
-                 */
-                navController.navigate(Screen.Home.route){
-                    popUpTo(Screen.Home.route){
-                        inclusive = true // bu şekilde detail screen'den home screen'e eri dönebileecğiz. ve detail screen back stack'ten pop olacak.
-                    }
-                }
+                navController.popBackStack()
             },
-            text = "Detail",
-            color = Color.Red,
+            text = "Sign Up",
+            color = Color.DarkGray,
             fontSize = MaterialTheme.typography.displaySmall.fontSize,
             fontWeight = FontWeight.Bold
         )
@@ -47,9 +38,9 @@ fun DetailScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun DetailScreenPreview() {
+fun SignUpScreenPreview() {
     ComposeNavigationTheme {
-        DetailScreen(
+        SignUpScreen(
             rememberNavController()
         )
     }

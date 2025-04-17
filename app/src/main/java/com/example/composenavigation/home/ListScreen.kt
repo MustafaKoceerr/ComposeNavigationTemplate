@@ -1,4 +1,4 @@
-package com.example.composenavigation
+package com.example.composenavigation.home
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -13,6 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.composenavigation.navigation.Screen
 import com.example.composenavigation.ui.theme.ComposeNavigationTheme
 
 @Composable
